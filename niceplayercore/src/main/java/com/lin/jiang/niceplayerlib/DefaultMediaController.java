@@ -29,7 +29,7 @@ import java.util.TimerTask;
 
 public class DefaultMediaController extends AbstractMediaController implements View.OnClickListener, SeekBar.OnSeekBarChangeListener {
 
-    private static final String TAG = "NiceMediaPlayer";
+    private static final String TAG = "NiceVideoView";
 
     private Context mContext;
     private IMediaPlayer mMediaPlayer; // 实际使用的是NicePlayer
@@ -145,24 +145,24 @@ public class DefaultMediaController extends AbstractMediaController implements V
     public void setControllerState(int playerState, int playState) {
         Log.d(TAG, "setControllerState: playerState=" + playerState + ", playState" + playState);
         switch (playerState) {
-            case NiceMediaPlayer.PLAYER_NORMAL:
+            case NiceVideoView.PLAYER_NORMAL:
                 mBack.setVisibility(View.GONE);
                 mFullScreen.setVisibility(View.VISIBLE);
                 mFullScreen.setImageResource(R.drawable.ic_player_enlarge);
                 break;
-            case NiceMediaPlayer.PLAYER_FULL_SCREEN:
+            case NiceVideoView.PLAYER_FULL_SCREEN:
                 mBack.setVisibility(View.VISIBLE);
                 mFullScreen.setVisibility(View.VISIBLE);
                 mFullScreen.setImageResource(R.drawable.ic_player_shrink);
                 break;
-            case NiceMediaPlayer.PLAYER_TINY_WINDOW:
+            case NiceVideoView.PLAYER_TINY_WINDOW:
                 mFullScreen.setVisibility(View.GONE);
                 break;
         }
         switch (playState) {
-            case NiceMediaPlayer.STATE_IDLE:
+            case NiceVideoView.STATE_IDLE:
                 break;
-            case NiceMediaPlayer.STATE_PREPARING:
+            case NiceVideoView.STATE_PREPARING:
                 // 只显示准备中动画，其他不显示
                 mImage.setVisibility(View.GONE);
                 mLoading.setVisibility(View.VISIBLE);
@@ -172,31 +172,31 @@ public class DefaultMediaController extends AbstractMediaController implements V
                 mTop.setVisibility(View.GONE);
                 mCenterStart.setVisibility(View.GONE);
                 break;
-            case NiceMediaPlayer.STATE_PREPARED:
+            case NiceVideoView.STATE_PREPARED:
                 startUpdateProgressTimer();
                 break;
-            case NiceMediaPlayer.STATE_PLAYING:
+            case NiceVideoView.STATE_PLAYING:
                 mLoading.setVisibility(View.GONE);
                 mRestartPause.setImageResource(R.drawable.ic_player_pause);
                 startDismissTopBottomTimer();
                 break;
-            case NiceMediaPlayer.STATE_PAUSED:
+            case NiceVideoView.STATE_PAUSED:
                 mLoading.setVisibility(View.GONE);
                 mRestartPause.setImageResource(R.drawable.ic_player_start);
                 cancelDismissTopBottomTimer();
                 break;
-            case NiceMediaPlayer.STATE_BUFFERING_PLAYING:
+            case NiceVideoView.STATE_BUFFERING_PLAYING:
                 mLoading.setVisibility(View.VISIBLE);
                 mRestartPause.setImageResource(R.drawable.ic_player_pause);
                 mLoadText.setText("正在缓冲...");
                 startDismissTopBottomTimer();
                 break;
-            case NiceMediaPlayer.STATE_BUFFERING_PAUSED:
+            case NiceVideoView.STATE_BUFFERING_PAUSED:
                 mLoading.setVisibility(View.VISIBLE);
                 mRestartPause.setImageResource(R.drawable.ic_player_start);
                 mLoadText.setText("正在缓冲...");
                 cancelDismissTopBottomTimer();
-            case NiceMediaPlayer.STATE_COMPLETED:
+            case NiceVideoView.STATE_COMPLETED:
                 cancelUpdateProgressTimer();
                 setTopBottomVisible(false);
                 mImage.setVisibility(View.VISIBLE);
@@ -208,7 +208,7 @@ public class DefaultMediaController extends AbstractMediaController implements V
                     mMediaPlayer.exitTinyWindow();
                 }
                 break;
-            case NiceMediaPlayer.STATE_ERROR:
+            case NiceVideoView.STATE_ERROR:
                 cancelUpdateProgressTimer();
                 setTopBottomVisible(false);
                 mTop.setVisibility(View.VISIBLE);

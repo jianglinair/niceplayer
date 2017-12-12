@@ -9,8 +9,8 @@
         android:layout_height="8dp"
         android:background="#f1f1f1" />
 
-    <com.lin.jiang.niceplayerlib.NiceMediaPlayer
-        android:id="@+id/nmp_media_player"
+    <com.lin.jiang.niceplayerlib.NiceVideoView
+        android:id="@+id/nvv_nice_video_view"
         android:layout_width="match_parent"
         android:layout_height="200dp" />
 

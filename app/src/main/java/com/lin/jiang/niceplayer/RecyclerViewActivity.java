@@ -8,7 +8,7 @@ import android.view.View;
 
 import com.lin.jiang.niceplayer.adapter.VideoAdapter;
 import com.lin.jiang.niceplayer.bean.Video;
-import com.lin.jiang.niceplayerlib.NiceMediaPlayer;
+import com.lin.jiang.niceplayerlib.NiceVideoView;
 import com.lin.jiang.niceplayerlib.base.MediaPlayerManager;
 
 import java.util.ArrayList;
@@ -39,7 +39,7 @@ public class RecyclerViewActivity extends AppCompatActivity {
 
             @Override
             public void onChildViewDetachedFromWindow(View view) {
-                NiceMediaPlayer player = (NiceMediaPlayer) view.findViewById(R.id.nmp_media_player);
+                NiceVideoView player = (NiceVideoView) view.findViewById(R.id.nvv_nice_video_view);
                 if (player != null)
                     player.release();
             }

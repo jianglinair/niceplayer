@@ -6,7 +6,7 @@ import android.view.ViewGroup;
 
 import com.lin.jiang.niceplayer.R;
 import com.lin.jiang.niceplayer.bean.Video;
-import com.lin.jiang.niceplayerlib.NiceMediaPlayer;
+import com.lin.jiang.niceplayerlib.NiceVideoView;
 import com.lin.jiang.niceplayerlib.base.AbstractMediaController;
 
 /**
@@ -15,12 +15,12 @@ import com.lin.jiang.niceplayerlib.base.AbstractMediaController;
 
 public class VideoViewHolder extends RecyclerView.ViewHolder {
 
-    private NiceMediaPlayer mNiceMediaPlayer;
+    private NiceVideoView mNiceVideoView;
     private AbstractMediaController mController;
 
     public VideoViewHolder(View itemView) {
         super(itemView);
-        mNiceMediaPlayer = (NiceMediaPlayer) itemView.findViewById(R.id.nmp_media_player);
+        mNiceVideoView = (NiceVideoView) itemView.findViewById(R.id.nvv_nice_video_view);
     }
 
     public void setController(AbstractMediaController controller) {
@@ -30,11 +30,11 @@ public class VideoViewHolder extends RecyclerView.ViewHolder {
     public void bindData(Video video) {
         mController.setTitle(video.getTitle());
         mController.setImage(video.getImgUrl());
-        mNiceMediaPlayer.setUp(video.getVideoUrl(), null);
+        mNiceVideoView.setUp(video.getVideoUrl(), null);
         ViewGroup viewGroup = (ViewGroup) mController.getParent();
         if (viewGroup != null) {
             viewGroup.removeView(mController);
         }
-        mNiceMediaPlayer.setController(mController);
+        mNiceVideoView.setController(mController);
     }
 }

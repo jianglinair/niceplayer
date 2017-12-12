@@ -6,13 +6,13 @@
     android:orientation="vertical"
     tools:context="com.lin.jiang.niceplayer.MainActivity">
 
-    <com.lin.jiang.niceplayerlib.NiceMediaPlayer
-        android:id="@+id/mp_video_player"
+    <com.lin.jiang.niceplayerlib.NiceVideoView
+        android:id="@+id/nice_video_view"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_marginBottom="8dp"
         android:layout_marginTop="16dp"
-        android:layout_weight="1.2"></com.lin.jiang.niceplayerlib.NiceMediaPlayer>
+        android:layout_weight="1.2"></com.lin.jiang.niceplayerlib.NiceVideoView>
 
     <LinearLayout
         android:layout_width="match_parent"

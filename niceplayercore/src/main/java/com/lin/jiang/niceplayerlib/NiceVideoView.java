@@ -29,7 +29,7 @@ import java.util.Map;
  * Created by jianglin on 17-6-1.
  */
 
-public class NiceMediaPlayer extends FrameLayout implements IMediaPlayer, TextureView.SurfaceTextureListener {
+public class NiceVideoView extends FrameLayout implements IMediaPlayer, TextureView.SurfaceTextureListener {
 
     public static final int STATE_ERROR = -1;            // 播放错误
     public static final int STATE_IDLE = 0;              // 播放未开始
@@ -44,7 +44,7 @@ public class NiceMediaPlayer extends FrameLayout implements IMediaPlayer, Textur
     public static final int PLAYER_NORMAL = 10;          // 普通播放器
     public static final int PLAYER_FULL_SCREEN = 11;     // 全屏播放器
     public static final int PLAYER_TINY_WINDOW = 12;     // 小窗口播放器
-    private static final String TAG = "NiceMediaPlayer";
+    private static final String TAG = "NiceVideoView";
 
     /**
      * 播放状态
@@ -149,11 +149,11 @@ public class NiceMediaPlayer extends FrameLayout implements IMediaPlayer, Textur
     };
     // ===== MediaPlayer's listeners end =====
 
-    public NiceMediaPlayer(@NonNull Context context) {
+    public NiceVideoView(@NonNull Context context) {
         this(context, null);
     }
 
-    public NiceMediaPlayer(@NonNull Context context, @Nullable AttributeSet attrs) {
+    public NiceVideoView(@NonNull Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
         mContext = context;
         init();
